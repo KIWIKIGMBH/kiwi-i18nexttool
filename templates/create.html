@@ -1,0 +1,25 @@
+<form class="form-horizontal create-json">
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Version</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputEmail3" placeholder="Version" ng-model="newLanguage.version.version">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputEmail3" class="col-sm-2 control-label">Title</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputEmail3" placeholder="Title" ng-model="newLanguage.version.title">
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="inputPassword3" class="col-sm-2 control-label">Language</label>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="inputPassword3" placeholder="en, de, fr, ..." ng-model="newLanguage.version.lang">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button ng-click="addNewLanguage()" class="btn btn-success">Create Language</button>
+    </div>
+  </div>
+</form>

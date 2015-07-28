@@ -1,0 +1,49 @@
+<!-- <script type="text/ng-template" id="treeTemplate">
+    <span ng-switch="level($index,value)">
+        <span ng-switch-when="leaf">
+            <input type="text" ng-model="value"/>
+        </span>
+        <span ng-switch-when="node">
+            <div ng-repeat="value in value track by $index">
+                <span ng-click="" ng-init="isExpanded=true" >
+                    <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                    {{$index}}
+                </span>
+                <span ng-include="'treeTemplate'"></span>
+            </div>
+        </span>
+    </span>
+</script> -->
+<script type="text/ng-template" id="treeTemplate2">
+
+    <span ng-switch="type(value)">
+
+        <span ng-switch-when="string" class="json-tree-string">
+            <input type="text" ng-model="groupValue[key]"/>
+        </span>
+
+        <span ng-switch-when="hash">
+            <div class="json-tree-box" ng-repeat="(key,value) in value" ng-init="groupValue = $parent.value" >
+                <span ng-click="isExpanded = expander(isExpanded, $event)" ng-init="isExpanded=true" ng-show="isThisAnObject(value)" class="json-tree-expand-link">
+                    <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                    {{key}}
+                </span>
+                <span ng-show="!isThisAnObject(value)">{{key}}</span>
+                <span ng-show="isExpanded" ng-include="'treeTemplate2'"></span>
+            </div>
+        </span>
+
+        <span ng-switch-when="array">
+             <div class="json-tree-box" ng-repeat="(key, value) in value" ng-init="groupValue = $parent.value">
+                <span ng-click="isExpanded = expander(isExpanded, $event)" ng-init="isExpanded=true" ng-show="isThisAnObject(value)">
+                    <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                    {{key}}
+                </span>
+                <span ng-show="!isThisAnObject(value)">{{key}}</span>
+                <span ng-show="isExpanded" ng-include="'treeTemplate2'"></span>
+             </div>
+        </span>
+
+    </span>
+
+</script>

@@ -1,0 +1,70 @@
+<div class="" ng-controller="languageJSONController">
+<div class="panel panel-default">
+<div class="panel-heading">
+    <span>Edit language file</span>
+    <span ng-repeat="(language,color) in arrOfLanguages">
+        <span class="btn" ng-click="download(language)" ng-class="{blue:'btn-primary',green:'btn-success',yellow:'btn-warning'}[color]">Download "{{language}}"</span>
+    </span>
+    <span class="btn btn-default btn-xs json-tree-add-category" ng-show="isNotEmpty(value)" ng-click="addCategory()">
+        <span class="glyphicon glyphicon-plus"></span>
+        <span>Add new category</span>
+    </span>
+</div>
+
+
+<div class="form-inline json-tree" ng-if="isNotEmpty(value)" ng-include="'treeTemplate'"></div>
+
+
+<script type="text/ng-template" id="treeTemplate">
+
+    <div ng-switch="type(value)">
+
+        <div ng-switch-when="string" class="json-tree-string">
+
+            <div ng-show="!isThisAnObject(value)" class="json-tree-string-key">{{key}}</div>
+
+            <div class="json-tree-string-input" >
+                <div ng-repeat="(language,color) in arrOfLanguages" class="json-tree-string-input-element">
+
+                    <div class="form-group has-feedback" ng-class="color">
+                        <input class="form-control" type="text" ng-model="groupValue[language][key]" ng-readonly="!textFieldStatus(groupValue[language][key])" />
+                        <span ng-click="deleteProperty(groupValue[language], key, $event)" class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true" ng-show="textFieldStatus(groupValue[language][key])"></span>
+                        <span ng-click="undoDelete(groupValue[language],key,$event)" class="glyphicon glyphicon-plus form-control-feedback" aria-hidden="true" ng-hide="textFieldStatus(groupValue[language][key])"></span>
+                    </div>
+            </div>
+            </div>
+
+        </div>
+
+        <div ng-switch-when="hash">
+            <div class="json-tree-box" ng-repeat="(key,value) in value" ng-init="groupValue = init($parent.key,groupValue)">
+                <span ng-click="isExpanded = expand(isExpanded, $event)" ng-init="isExpanded=true" ng-show="isThisAnObject(value)" class="json-tree-cursor">
+                    <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                    {{key}}
+                </span>
+                <span class="btn btn-outlined btn-xs json-tree-add" ng-show="isThisAnObject(value)" ng-click="addProperty(value)">
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span>Add new entry</span>
+                </span>
+                <!--<span ng-show="!isThisAnObject(value)">{{key}}</span>-->
+                <div ng-show="isExpanded" ng-include="'treeTemplate'"></div></div>
+            </div>
+        </div>
+
+        <!--<span ng-switch-when="array">
+             <div class="json-tree-box" ng-repeat="(key, value) in value" ng-init="groupValue = init($parent.key,groupValue)">
+                <span ng-click="isExpanded = expand(isExpanded, $event)" ng-init="isExpanded=true" ng-show="isThisAnObject(value)">
+                    <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
+                    {{key}}
+                </span>
+                 <span ng-show="isThisAnObject(value)" ng-click="addProperty(value)" class="glyphicon glyphicon-plus"></span>
+                <span ng-show="!isThisAnObject(value)">{{key}}</span>
+                <span ng-show="isExpanded" ng-include="'treeTemplate'"></span>
+             </div>
+        </span>-->
+
+    </span>
+
+</script>
+</div>
+</div>

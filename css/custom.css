@@ -1,0 +1,185 @@
+.my-on-drag-enter{
+  border-color: rgba(82,168,236,.8);
+  webkit-box-shadow: 0 0 24px rgba(82,168,236,.8);
+  box-shadow: 0 0 100px rgba(82,168,236,.8);
+}
+
+.expand-link{
+    cursor: pointer;
+}
+
+/**
+* ======= JSON tree structure in edit.html view =======
+*/
+
+/**
+* Assure that the container takes the width of his elements
+*/
+.json-tree{
+    display:table;
+}
+
+.json-tree-box{
+    padding: 5px 0px 5px 8px;
+}
+
+.json-tree-box > span{
+    text-transform: capitalize;
+    margin-right: 1.5em;
+}
+
+.json-tree-cursor{
+  cursor: pointer;
+}
+
+.json-tree-input[type="text"]{
+  background-color: #F7F7F7;
+  padding:3px 5px;
+  border: 1px solid lightgrey;
+  color: #808080;
+}
+
+.json-tree-input[type="text"]:focus{
+   background-color: #fff;
+   color: #000;
+}
+
+.json-tree-indent{
+    white-space: pre;
+}
+
+.json-tree-add-category{
+    color:#000;
+}
+
+.json-tree-add-category:hover{
+    color:#000;
+}
+
+.json-tree-add:hover > .glyphicon, .json-tree-add-category:hover > .glyphicon{
+    color:rgba(127, 201, 255, 0.8);
+}
+
+.json-tree-string{
+    text-align:justify;
+    font-size:0.1em;
+}
+
+/**
+* Justify hack, to display the keys left aligned and the input fields right aligned.
+* Source: http://stackoverflow.com/a/10277235
+*/
+.json-tree-string:after{
+    content: '';
+    display: inline-block;
+    width: 100%;
+    height: 0;
+    font-size:0;
+    line-height:0;
+}
+
+.json-tree-string-key{
+    display: inline-block;
+
+    font-size: 10em;
+    vertical-align: middle;
+    text-transform: capitalize;
+}
+
+.json-tree-string-input{
+    display:inline-block;
+}
+
+.json-tree-string-input-element{
+    display:inline-block;
+    margin-right: 5em;
+}
+
+.json-tree-string-input-element .glyphicon{
+    font-size:10em;
+}
+
+/**
+* ======= Create view (create.html) =======
+*/
+.create-json{
+    margin:0 20%;
+}
+
+
+input:read-only{
+    background-color: #333333 !important;
+}
+
+/**
+* ======= Bootstrap overrides =======
+*/
+
+/* Bootstrap disables pointer events on icons within an input field */
+.form-control-feedback{
+    pointer-events: all;
+    cursor: pointer;
+}
+
+/* Colorcoding for input values */
+.blue .form-control{
+    border-color: #66afe9;
+    background-color: #555555;
+    color: #fff;
+}
+
+.blue .form-control-feedback{
+    color: #66afe9;
+}
+
+.green .form-control{
+    border-color: #48E04A;
+    background-color: #555555;
+    color: #fff;
+}
+
+.green .form-control-feedback{
+    color: #48E04A;
+}
+
+.green .form-control:focus{
+  webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(72,224,74,.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(72,224,74,.6);
+}
+/*#FF2525*/
+
+.yellow .form-control{
+    border-color: #FDFA2F;;
+    background-color: #555555;
+    color: #fff;
+}
+
+.yellow .form-control-feedback{
+    color: #FDFA2F;;
+}
+
+.yellow .form-control:focus{
+  webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(253,250,47,.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(253,250,47,.6);
+}
+
+/* Standard bootstrap setting is display:block; */
+input[type=file]{
+    display:inline;
+}
+
+.panel-default>.panel-heading {
+  color: #fff;
+  background-color: #222222;
+  border-color: #111111;
+}
+
+.panel-default {
+  border-color: #111111;
+  background-color: #444444;
+  text-align: left;
+}
+
+.btn-outlined.focus, .btn-outlined:focus, .btn-outlined:hover{
+    color:rgba(127, 201, 255, 0.8);
+}

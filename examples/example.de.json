@@ -1,0 +1,15 @@
+{
+  "version": {
+    "title": "App Version",
+    "version": "beta 6",
+    "lang": "de"
+  },
+  "title": "Example Application",
+  "general": {
+    "yes": "Ja",
+    "no": "Nein",
+    "done": "Fertig",
+    "edit": "Bearbeiten",
+    "back": "Zurück"
+  }
+}

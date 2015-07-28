@@ -1,0 +1,13 @@
+
+    <h1>Drag and Drop the JSON File into this area.</h1>
+    <div>
+    <form>
+    <input class=" btn btn-primary btn-lg" type="file" accept=".json" my-file-select>
+    <!--  <input type="file" ng-file-select="onFileSelect($files)" multiple> -->
+    </form>
+    <b>Progress:</b>
+    <progress value="{{progress}}"></progress><br/>
+    <i ng-hide="fileInstance">No language file choosed</i>
+    {{testVariable}}
+    <a href="#edit" class="btn btn-success" ng-show="fileInstance">Everything worked, file is ready for editing.</a>
+    </div>
